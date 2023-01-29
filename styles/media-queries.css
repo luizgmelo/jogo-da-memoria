@@ -14,11 +14,12 @@
         position: absolute;
         top: calc(15% - 30px);
         left: 90px;
+        border-radius: 10px 10px 0px 0px;
     }
 
     div.cards {
         position: absolute;
-        width: 500px;
+        width: 1000px;
         height: 450px;
         top: 15%;
         left: 100px;
