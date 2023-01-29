@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="">
+    <img src="https://user-images.githubusercontent.com/88911920/215331291-72d8713a-142c-4c4b-9d7d-be5ddf1169eb.png">
 </div>
 
 <h1 align="center">Jogo da Memória</h1>
@@ -14,8 +14,9 @@ Um jogo da memória feito com cartas do anime My Hero Academia.
 
 <br>
 
-![memory-desktop]()
-![memory-mobile]()
+
+![memory-desktop](https://user-images.githubusercontent.com/88911920/215331333-1e6064c2-913d-4c09-91a8-975349465f1f.gif)
+![memory-mobile](https://user-images.githubusercontent.com/88911920/215331334-2e32145c-5398-45c5-8f29-8e65301d80ab.gif)
 
 
 ## O que é o projeto
