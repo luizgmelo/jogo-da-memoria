@@ -19,10 +19,10 @@ function resetCards() {
     let firstCard = document.getElementById(match[0].id);
     let secondCard = document.getElementById(match[1].id);
     if (firstCard.alt == "face-card" && secondCard.alt != "face-card") {
-        alert("A primeira carta já foi virada, por favor escolha outra")
+        alert("The first card has already been turned over, please choose another one")
         secondCard.src = "images/card.png";
     } else if (secondCard.alt == "face-card" && firstCard.alt != "face-card"){
-        alert("A segunda carta já foi virada, por favor escolha outra")
+        alert("The second card has already been turned over, please choose another one")
         firstCard.src = "images/card.png";
     } else if (firstCard.alt != "face-card" && secondCard.alt != "face-card") {
         firstCard.src = "images/card.png";
@@ -42,7 +42,7 @@ function flipCard(id) {
     if (match.length <= 2) {
         card.setAttribute('src', `images/${id}.png`)
     } else {
-        alert("Você só pode virar duas cartas por vez");
+        alert("You only can to turn two cards at same time");
     }
     
     if (match.length == 2) {
@@ -52,14 +52,14 @@ function flipCard(id) {
             firstCard.alt = "face-card"
             secondCard.alt = "face-card"
             score++
-            alert("Incrível")
+            alert("Awesome")
             match.pop()
             match.pop()
             if (score == 12) {
-                alert("Parabéns você concluiu o jogo")
+                alert("Congradulations you complete the game.")
                 let title = document.getElementById("title")
                 title.style.color = "#ff0000"
-                title.innerText = "reinicie a página para jogar novamente"
+                title.innerText = "restart the page to play again"
             }
         } else {
             setTimeout(resetCards, 1000)
