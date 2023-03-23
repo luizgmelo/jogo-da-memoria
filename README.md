@@ -23,7 +23,7 @@ A memory game built with cards of anime My Hero Academia.
 - A memory game for train and enjoying the benefits of this mind game.
 
 ## How access the project?
-- This project is hosted on Github Pages for acess <a href="https://luizgmelo.github.io/jogo-da-memoria/">click here</a>.
+- This project is hosted on Github Pages for acess <a href="https://luizgmelo.github.io/memory-game/">click here</a>.
 
 ## Technology
 ### ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?logo=html5&logoColor=white) 
