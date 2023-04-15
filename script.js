@@ -5,6 +5,9 @@ const match = []
 const differenceId = 12;
 let score = 0;
 
+let title = document.querySelector("#title");
+title.innerText += ` score: ${score}` 
+
 // randomize cards
 arrayCardsId.sort((a, b) => 0.5 - Math.random())
 
@@ -52,6 +55,7 @@ function flipCard(id) {
             firstCard.alt = "face-card"
             secondCard.alt = "face-card"
             score++
+            title.innerText = `Memory Game score: ${score}`
             alert("Awesome")
             match.pop()
             match.pop()
