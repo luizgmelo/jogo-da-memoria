@@ -1,26 +1,32 @@
 const cards = document.querySelector("div.cards")
-const arrayCardsId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
-                      13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24] 
-const match = []
-const differenceId = 12;
+const arrayCards = ["bakugo", "kirishima", "lida", "mic", 
+                    "midoriya", "might", "neito", "ojiro", 
+                    "shoji", "todoroki", "tokoyami", "uraraka",
+                    "bakugo", "kirishima", "lida", "mic", 
+                    "midoriya", "might", "neito", "ojiro", 
+                    "shoji", "todoroki", "tokoyami", "uraraka"];
+const match = [];
 let score = 0;
+let cardId = 0;
 
 let title = document.querySelector("#title");
 title.innerText += ` score: ${score}` 
 
 // randomize cards
-arrayCardsId.sort((a, b) => 0.5 - Math.random())
+arrayCards.sort(() => 0.5 - Math.random())
 
-console.log(arrayCardsId);
+console.log(arrayCards);
 
 
-arrayCardsId.forEach((cardId) => {
-    cards.innerHTML += `<img id="${cardId}" src="images/card.png" alt="card-blank" onclick="flipCard(${cardId})">`
+arrayCards.forEach((character) => {
+    cardId++
+    cards.innerHTML += `<img id="${cardId}" src="images/card.png" 
+                        alt="card-blank" onclick="flipCard('${cardId}')" data-character="${character}">`
 }) 
 
 function resetCards() {
-    let firstCard = document.getElementById(match[0].id);
-    let secondCard = document.getElementById(match[1].id);
+    let firstCard = document.getElementById(match[0].id)
+    let secondCard = document.getElementById(match[1].id)
     if (firstCard.alt == "face-card" && secondCard.alt != "face-card") {
         alert("The first card has already been turned over, please choose another one")
         secondCard.src = "images/card.png";
@@ -36,22 +42,20 @@ function resetCards() {
     // clear array
     match.splice(0, 24);
 }
-
-function flipCard(id) {
-    let card = document.getElementById(id);
-
+function flipCard(cardId) {
+    let card = document.getElementById(cardId);
     match.push(card);
-
     if (match.length <= 2) {
-        card.setAttribute('src', `images/${id}.png`)
+        card.setAttribute('src', `images/${card.dataset.character}.png`)
     } else {
         alert("You only can to turn two cards at same time");
     }
-    
     if (match.length == 2) {
-        if ((Number(match[0].id) + differenceId == Number(match[1].id) || Number(match[0].id) == Number(match[1].id) + differenceId) && card.alt != "face-card") {
-            let firstCard = document.getElementById(match[0].id);
-            let secondCard = document.getElementById(match[1].id);
+        
+        let firstCard = match[0];
+        let secondCard = match[1];
+
+        if (firstCard.dataset.character == secondCard.dataset.character) {
             firstCard.alt = "face-card"
             secondCard.alt = "face-card"
             score++
