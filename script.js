@@ -44,7 +44,9 @@ function resetCards() {
 }
 function flipCard(cardId) {
     let card = document.getElementById(cardId);
-    match.push(card);
+    if (!match.includes(card)) {
+        match.push(card);
+    }
     if (match.length <= 2) {
         card.setAttribute('src', `images/${card.dataset.character}.png`)
     } else {
