@@ -1,10 +1,8 @@
 const cards = document.querySelector("div.cards")
 const arrayCards = ["bakugo", "kirishima", "lida", "mic", 
                     "midoriya", "might", "neito", "ojiro", 
-                    "shoji", "todoroki", "tokoyami", "uraraka",
-                    "bakugo", "kirishima", "lida", "mic", 
-                    "midoriya", "might", "neito", "ojiro", 
                     "shoji", "todoroki", "tokoyami", "uraraka"];
+arrayCards.push(...arrayCards);
 const match = [];
 let score = 0;
 let cardId = 0;
@@ -27,30 +25,20 @@ arrayCards.forEach((character) => {
 function resetCards() {
     let firstCard = document.getElementById(match[0].id)
     let secondCard = document.getElementById(match[1].id)
-    if (firstCard.alt == "face-card" && secondCard.alt != "face-card") {
-        alert("The first card has already been turned over, please choose another one")
-        secondCard.src = "images/card.png";
-    } else if (secondCard.alt == "face-card" && firstCard.alt != "face-card"){
-        alert("The second card has already been turned over, please choose another one")
-        firstCard.src = "images/card.png";
-    } else if (firstCard.alt != "face-card" && secondCard.alt != "face-card") {
-        firstCard.src = "images/card.png";
-        secondCard.src = "images/card.png";
-    }
-
-
-    // clear array
-    match.splice(0, 24);
+    firstCard.src = "images/card.png";
+    secondCard.src = "images/card.png";
+    match.pop()
+    match.pop()
 }
+
 function flipCard(cardId) {
     let card = document.getElementById(cardId);
-    if (!match.includes(card)) {
+    if (!match.includes(card) && match.length < 2) {
         match.push(card);
-    }
-    if (match.length <= 2) {
         card.setAttribute('src', `images/${card.dataset.character}.png`)
-    } else {
-        alert("You only can to turn two cards at same time");
+    } 
+    if (match.length > 2){
+        return alert("You only can to turn two cards at same time");
     }
     if (match.length == 2) {
         
@@ -58,8 +46,6 @@ function flipCard(cardId) {
         let secondCard = match[1];
 
         if (firstCard.dataset.character == secondCard.dataset.character) {
-            firstCard.alt = "face-card"
-            secondCard.alt = "face-card"
             score++
             title.innerText = `Memory Game score: ${score}`
             alert("Awesome")
