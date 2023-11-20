@@ -1,0 +1,9 @@
+.cards {
+    background-color: white;
+    width: 375px;
+    margin: 15px auto;
+}
+
+.cards img {
+    padding: 10px;
+}

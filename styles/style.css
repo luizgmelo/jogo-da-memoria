@@ -17,16 +17,6 @@ body > h1 {
     margin: 10px;
 }
 
-div.cards {
-    background-color: white;
-    width: 375px;
-    margin: 15px auto;
-}
-
-div.cards > img {
-    padding: 10px;
-}
-
 p.credit {
     background-color: black;
     color: white;
