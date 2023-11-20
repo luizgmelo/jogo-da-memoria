@@ -33,7 +33,7 @@ function resetCards() {
 
 function flipCard(cardId) {
     let card = document.getElementById(cardId);
-    if (!match.includes(card) && match.length < 2) {
+    if (!match.includes(card) && match.length < 2 && card.alt != 'front-face') {
         match.push(card);
         card.setAttribute('src', `images/${card.dataset.character}.png`)
     } 
@@ -46,6 +46,8 @@ function flipCard(cardId) {
         let secondCard = match[1];
 
         if (firstCard.dataset.character == secondCard.dataset.character) {
+            firstCard.alt = 'front-face'
+            secondCard.alt = 'front-face'
             score++
             title.innerText = `Memory Game score: ${score}`
             alert("Awesome")
@@ -58,7 +60,7 @@ function flipCard(cardId) {
                 title.innerText = "restart the page to play again"
             }
         } else {
-            setTimeout(resetCards, 1000)
+            setTimeout(resetCards, 2000)
         }
     }
 
