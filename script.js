@@ -1,4 +1,5 @@
 const divCards = document.querySelector(".cards")
+const divRestartGame = document.getElementById("restart-game")
 const arrayCards = ["bakugo", "kirishima", "lida", "mic", 
   "midoriya", "might", "neito", "ojiro", 
   "shoji", "todoroki", "tokoyami", "uraraka"];
@@ -64,12 +65,23 @@ function checkMatch() {
     match.pop()
     if (score === 12) {
       alert("Congradulations you complete the game.")
-      let title = document.getElementById("title")
-      title.style.color = "#ff0000"
-      title.innerText = "restart the page to play again"
+      divCards.style.display = "none"
+      divRestartGame.style.display = "flex"
     }
   } else {
     setTimeout(resetCards, 2000)
   }
 }
+
+const restartGame = () => {
+  score = 0;
+  divCards.style.display = "block";
+  divRestartGame.style.display = "none";
+  title.innerText = `Memory Game score: ${score}`
+  const cards = document.querySelectorAll("img");
+  cards.forEach(img => img.src = "images/card.png")
+}
+
+const buttonRestartGame = document.getElementById("btn-restart-game").addEventListener("click", restartGame)
+
 createBoard()

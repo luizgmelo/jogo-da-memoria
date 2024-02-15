@@ -17,6 +17,28 @@ body > h1 {
     margin: 10px;
 }
 
+.restart-game {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.restart-btn {
+  font-size: 1.1em;
+  background-color: #fff;
+  width:  100px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.restart-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
 p.credit {
     background-color: black;
     color: white;
